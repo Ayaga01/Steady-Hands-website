@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steady Hands, Open Heart — A Future in Nursing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16221E;
+    --pine: #12332D;
+    --pine-light: #1C4A42;
+    --parchment: #F2ECDA;
+    --parchment-dim: #E8E0C9;
+    --coral: #DD6B3A;
+    --gold: #B8934A;
+    --line: rgba(22, 34, 30, 0.14);
+    --line-light: rgba(242, 236, 218, 0.2);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'IBM Plex Sans', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
+
+  a { color: inherit; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+
+  @media (max-width: 640px) { .wrap { padding: 0 24px; } }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 120px 0 80px;
+    overflow: hidden;
+  }
+
+  .hero .wrap { position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    color: var(--pine);
+    max-width: 520px;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 6.2vw, 5.1rem);
+    line-height: 1.04;
+    max-width: 880px;
+    color: var(--ink);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--coral);
+  }
+
+  .hero-sub {
+    max-width: 480px;
+    margin-top: 30px;
+    font-size: 1.08rem;
+    color: rgba(22,34,30,0.72);
+  }
+
+  .hero-svg-wrap {
+    position: absolute;
+    right: -6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 58%;
+    max-width: 640px;
+    z-index: 1;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 900px) {
+    .hero-svg-wrap { position: static; width: 100%; transform: none; margin-top: 50px; opacity: 1; }
+    .hero { padding-top: 90px; }
+  }
+
+  .pulse-line {
+    fill: none;
+    stroke: var(--pine);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: draw 2.6s ease-out forwards 0.3s;
+  }
+
+  .pulse-line.accent { stroke: var(--coral); animation-delay: 0.5s; }
+
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-line { animation: none; stroke-dashoffset: 0; }
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-size: 0.82rem;
+    color: rgba(22,34,30,0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .scroll-cue .stem {
+    width: 1px; height: 34px; background: rgba(22,34,30,0.3);
+  }
+
+  @media (max-width: 640px) { .scroll-cue { display: none; } }
+
+  /* ---------- Split: Art & Science ---------- */
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+
+  .panel {
+    padding: 100px 56px;
+    position: relative;
+  }
+
+  @media (max-width: 640px) { .panel { padding: 72px 28px; } }
+
+  .panel.science {
+    background: var(--pine);
+    color: var(--parchment);
+  }
+
+  .panel.art {
+    background: var(--parchment);
+    color: var(--ink);
+  }
+
+  .panel-label {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.65;
+    margin-bottom: 18px;
+  }
+
+  .panel h2 {
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    max-width: 380px;
+    margin-bottom: 26px;
+  }
+
+  .panel p.lead {
+    max-width: 400px;
+    font-size: 1.02rem;
+    margin-bottom: 34px;
+    opacity: 0.88;
+  }
+
+  .trait-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 400px;
+  }
+
+  .trait-list li {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line-light);
+    font-size: 0.98rem;
+  }
+
+  .panel.art .trait-list li { border-bottom: 1px solid var(--line); }
+
+  .trait-list .mark {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    width: 20px;
+  }
+
+  .panel.science .trait-list .mark { color: var(--coral); }
+
+  /* ---------- Reflection ---------- */
+
+  .reflection {
+    padding: 130px 0;
+    background: var(--parchment-dim);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .reflection .wrap { max-width: 760px; }
+
+  .reflection h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 44px;
+  }
+
+  .reflection p {
+    font-size: 1.14rem;
+    line-height: 1.78;
+    margin-bottom: 26px;
+    color: rgba(22,34,30,0.86);
+  }
+
+  .reflection p:first-of-type::first-letter {
+    font-family: var(--serif);
+    font-size: 3.6rem;
+    float: left;
+    line-height: 0.85;
+    padding-right: 12px;
+    padding-top: 6px;
+    color: var(--pine);
+  }
+
+  .reflection .sign-off {
+    margin-top: 50px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--pine);
+  }
+
+  .placeholder-note {
+    margin-top: 40px;
+    padding: 18px 22px;
+    background: rgba(221,107,58,0.08);
+    border-left: 3px solid var(--coral);
+    font-size: 0.88rem;
+    color: rgba(22,34,30,0.75);
+  }
+
+  /* ---------- Stitch divider ---------- */
+
+  .stitch {
+    display: block;
+    width: 100%;
+    height: 28px;
+  }
+
+  .stitch path {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 1.5;
+    stroke-dasharray: 8 7;
+  }
+
+  /* ---------- Vignette: Same Moment, Two Lenses ---------- */
+
+  .vignette {
+    padding: 120px 0 130px;
+    background: var(--parchment);
+  }
+
+  .vignette .wrap { max-width: 760px; }
+
+  .vignette .panel-label { color: var(--pine); }
+
+  .vignette h2 {
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    margin-bottom: 12px;
+  }
+
+  .vignette .intro {
+    color: rgba(22,34,30,0.62);
+    font-size: 1rem;
+    margin-bottom: 40px;
+    max-width: 520px;
+  }
+
+  .lens-radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .lens-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .lens-label {
+    cursor: pointer;
+    padding: 11px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: rgba(22,34,30,0.6);
+    transition: all 0.18s ease;
+    user-select: none;
+  }
+
+  #lens-science:checked ~ .lens-tabs label[for="lens-science"] {
+    background: var(--pine);
+    border-color: var(--pine);
+    color: var(--parchment);
+  }
+
+  #lens-art:checked ~ .lens-tabs label[for="lens-art"] {
+    background: var(--coral);
+    border-color: var(--coral);
+    color: var(--ink);
+  }
+
+  .lens-frame {
+    margin-top: 28px;
+    padding: 42px 44px;
+    border-radius: 18px;
+    background: var(--parchment-dim);
+    border: 1px solid var(--line);
+    min-height: 210px;
+  }
+
+  @media (max-width: 640px) { .lens-frame { padding: 30px 26px; } }
+
+  .lens-content {
+    display: none;
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  .lens-content .cite {
+    display: block;
+    margin-top: 22px;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    opacity: 0.55;
+  }
+
+  #lens-science:checked ~ .lens-frame .lens-science-text { display: block; }
+  #lens-art:checked ~ .lens-frame .lens-art-text { display: block; }
+
+  /* ---------- Role band ---------- */
+
+  .role-band {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 110px 0;
+  }
+
+  .role-band .panel-label { color: rgba(242,236,218,0.55); }
+
+  .role-band h2 {
+    font-size: clamp(1.9rem, 3vw, 2.5rem);
+    max-width: 560px;
+    margin-bottom: 60px;
+    color: var(--parchment);
+  }
+
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 44px;
+  }
+
+  @media (max-width: 800px) { .role-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .role-card .role-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--coral);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .role-card h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    margin-bottom: 12px;
+    color: var(--parchment);
+  }
+
+  .role-card p {
+    font-size: 0.96rem;
+    color: rgba(242,236,218,0.68);
+    line-height: 1.68;
+  }
+
+  /* ---------- CTA / Slogan close ---------- */
+
+  .close {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 130px 0 90px;
+    text-align: center;
+  }
+
+  .close .display {
+    font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+    max-width: 700px;
+    margin: 0 auto 24px;
+  }
+
+  .close .display em { color: var(--coral); font-style: italic; }
+
+  .close p {
+    max-width: 480px;
+    margin: 0 auto 44px;
+    color: rgba(242,236,218,0.68);
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 15px 32px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+
+  .btn:hover { transform: translateY(-1px); }
+
+  .btn.primary {
+    background: var(--coral);
+    color: var(--ink);
+  }
+
+  .btn.secondary {
+    border: 1px solid rgba(242,236,218,0.35);
+    color: var(--parchment);
+  }
+
+  footer {
+    background: var(--ink);
+    color: rgba(242,236,218,0.5);
+    padding: 34px 0 44px;
+    font-size: 0.82rem;
+    text-align: center;
+    border-top: 1px solid rgba(242,236,218,0.1);
+  }
+
+  footer .edit-note {
+    display: block;
+    margin-top: 6px;
+    color: rgba(221,107,58,0.85);
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero-eyebrow">A self-reflected professional identity project — BSN candidate</p>
+      <h1>Steady hands.<br><em>Open</em> heart.</h1>
+      <p class="hero-sub">Nursing asks for both a disciplined mind and a generous spirit. This is what I am building myself into — and why the public should expect both from every nurse who cares for them.</p>
+    </div>
+    <div class="hero-svg-wrap">
+      <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+        <path class="pulse-line" d="M20,220 L120,220 L145,140 L175,290 L200,220 L240,220 L260,180 L280,220 L560,220" />
+        <path class="pulse-line accent" d="M260,220 C300,140 380,120 430,180 C460,215 460,255 430,290 C400,325 320,340 280,300 C255,275 255,240 280,220" />
+      </svg>
+    </div>
+    <div class="scroll-cue"><span class="stem"></span> the art &amp; the science</div>
+  </section>
+
+  <section class="split" id="art-science">
+    <div class="panel science">
+      <p class="panel-label">THE SCIENCE OF NURSING</p>
+      <h2>What keeps a patient safe.</h2>
+      <p class="lead">Nursing is a discipline built on evidence — assessment, pharmacology, pathophysiology, and judgment refined through practice. It is precise because a life depends on the precision.</p>
+      <ul class="trait-list">
+        <li><span class="mark">i</span> Assessing before assuming — vital signs, labs, and clinical reasoning guide every decision.</li>
+        <li><span class="mark">ii</span> Applying current evidence, not habit, to every intervention.</li>
+        <li><span class="mark">iii</span> Recognizing what is changing in a patient before it becomes an emergency.</li>
+        <li><span class="mark">iv</span> Collaborating across a care team where accuracy is non-negotiable.</li>
+      </ul>
+    </div>
+    <div class="panel art">
+      <p class="panel-label">THE ART OF NURSING</p>
+      <h2>What makes a patient feel safe.</h2>
+      <p class="lead">The same nurse who reads a monitor also reads a silence. Nursing is a craft of presence — knowing when to speak, when to sit down, and when to simply stay.</p>
+      <ul class="trait-list">
+        <li><span class="mark">i</span> Listening for what a patient isn't saying out loud.</li>
+        <li><span class="mark">ii</span> Translating fear into plain, honest, unhurried language.</li>
+        <li><span class="mark">iii</span> Advocating for a patient's dignity as fiercely as their diagnosis.</li>
+        <li><span class="mark">iv</span> Showing up the same way on the hardest shift as the easiest one.</li>
+      </ul>
+    </div>
+  </section>
+
+  <svg class="stitch" viewBox="0 0 1120 28" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,14 L1120,14" />
+  </svg>
+
+  <section class="vignette" id="vignette">
+    <div class="wrap">
+      <p class="panel-label">SAME MOMENT. TWO LENSES.</p>
+      <h2>8:14 a.m., Room 412.</h2>
+      <p class="intro">One patient. One minute. Nursing asks a single person to hold both of these truths about it at once. Toggle between the two.</p>
+
+      <input class="lens-radio" type="radio" name="lens" id="lens-science" checked>
+      <input class="lens-radio" type="radio" name="lens" id="lens-art">
+
+      <div class="lens-tabs">
+        <label class="lens-label" for="lens-science">Read as Science</label>
+        <label class="lens-label" for="lens-art">Read as Art</label>
+      </div>
+
+      <div class="lens-frame">
+        <p class="lens-content lens-science-text">Post-op day one, total hip arthroplasty. Vitals stable: BP 128/76, HR 82, SpO2 97% on room air. Pain reported 6 out of 10; ordered analgesic given per protocol, effectiveness reassessed at thirty minutes. Early ambulation initiated per the plan of care to reduce risk of DVT and pneumonia.<span class="cite">— the chart</span></p>
+        <p class="lens-content lens-art-text">She hasn't looked at her new hip yet. She's looking out the window, at the parking lot, thinking about the stairs at home she's afraid she won't climb again. I sit on the edge of the bed before I chart anything. I ask what she's afraid of, not just what hurts. Then we walk, slowly, together, and I let her set the pace.<span class="cite">— the same nurse, the same minute</span></p>
+      </div>
+    </div>
+  </section>
+
+  <svg class="stitch" viewBox="0 0 1120 28" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,14 L1120,14" />
+  </svg>
+
+  <section class="role-band" id="role">
+    <div class="wrap">
+      <p class="panel-label">THE ROLE, BEYOND THE BEDSIDE</p>
+      <h2>Safe, quality care doesn't stop at one bedside — it moves through a whole system, into a whole community.</h2>
+      <div class="role-grid">
+        <div class="role-card">
+          <span class="role-num">i.</span>
+          <h3>AT THE BEDSIDE</h3>
+          <p>Coordinating care across shifts, specialties, and handoffs so nothing about a patient's status gets lost in translation — and catching small changes early, before they become incident reports.</p>
+        </div>
+        <div class="role-card">
+          <span class="role-num">ii.</span>
+          <h3>ACROSS THE SYSTEM</h3>
+          <p>Contributing to unit-level safety and quality improvement, not just following protocols but helping refine them — in a culture where a near-miss gets reported, not hidden.</p>
+        </div>
+        <div class="role-card">
+          <span class="role-num">iii.</span>
+          <h3>IN THE COMMUNITY</h3>
+          <p>Teaching patients and families before discharge, so care doesn't stop when the door does — and representing the profession honestly to a public that will trust the next nurse based on how this one showed up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reflection" id="reflection">
+    <div class="wrap">
+      <h2>My reflection</h2>
+      <p>I did not choose nursing because it is one thing. I chose it because it refuses to be only one thing — it is a profession where a steady hand and a soft voice are asked of the same person, often in the same minute. Becoming a baccalaureate-prepared nurse means training both halves on purpose, not by accident.</p>
+      <p>The science is the part I can study: pathophysiology, pharmacology, the logic of a care plan. It is exact, and it has to be, because the margin for error in someone's body is small. But the science alone does not explain why a patient remembers the nurse who sat with them more than the one who was simply correct. That is the art — the part of nursing that is learned by paying attention to people, not just to protocols.</p>
+      <p>I want the public to see both sides represented, because most people only picture one. They picture the clipboard or they picture the bedside manner, rarely both at once as the same skill set. My role as a future BSN-prepared nurse is to hold that whole identity without apologizing for either half of it — to be exact and to be present, in the same body, on the same shift.</p>
+      <p>That role doesn't end at one bedside, either. A baccalaureate-prepared nurse is trained to see the patient in front of them and the system around that patient — the handoff that could fail, the safety gap that could be closed before it hurts someone, the discharge teaching that decides whether a person ends up back in this bed next month. Part of my identity is accepting that responsibility on purpose: not just delivering safe care myself, but helping build the conditions where safe, quality care is the norm across a unit, and where the community I serve trusts what a nurse actually is.</p>
+      <p>This project is my slogan for that idea: <em>steady hands, open heart</em>. It is not a slogan for nursing in the abstract. It is the standard I am building myself toward, and the standard I think the public deserves from every nurse who cares for them.</p>
+      <p class="sign-off">— Clin, BSN Candidate</p>
+      <div class="placeholder-note">
+        Personalize before submission: swap in your name/program, and consider replacing one line of the reflection above with a specific (de-identified, HIPAA-safe) moment from clinicals or nursing school that shaped how you see the art/science of the role — a concrete detail is what will separate this from a generic statement in the "Expression of Self-Reflected Identity" grading criterion.
+      </div>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <p class="display">This is the nurse I am becoming:<br><em>steady hands, open heart.</em></p>
+      <p>A profession of exact science, practiced with an open heart. That is the promise I am training to keep.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#reflection">Read my reflection</a>
+        <a class="btn secondary" href="https://www.nursingworld.org" target="_blank" rel="noopener">Learn about the profession</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      Creative Professional Identity Project — Self-Reflected Identity &amp; Role as a Baccalaureate-Prepared Nurse
+    </div>
+  </footer>
+
+</body>
+</html>
